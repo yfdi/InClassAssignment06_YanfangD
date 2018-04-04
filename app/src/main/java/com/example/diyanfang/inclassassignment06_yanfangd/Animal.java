@@ -15,6 +15,10 @@ public class Animal implements Serializable {
     private int numberOfLegs;
     private boolean hasFur;
 
+    public Animal(){
+
+    }
+
     public Animal(String animalType, int numberOfLegs, boolean hasFur, String moreInformation) {
         this.animalType = animalType;
         this.numberOfLegs = numberOfLegs;

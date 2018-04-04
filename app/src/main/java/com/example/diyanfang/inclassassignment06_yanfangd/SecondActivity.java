@@ -24,21 +24,23 @@ public class SecondActivity extends AppCompatActivity {
         numberOfLegs = (EditText)findViewById(R.id.legs_editText);
         moreInformation = (EditText)findViewById(R.id.moreInfo_editText);
         hasFur = (CheckBox)findViewById(R.id.hasFur_checkbox);
-
-        setTitle("Add Animal");
     }
 
-    public void submitAnimal(){
+
+    public void addAnimal(View view){
         String animalName = animalType.getText().toString();
         int numLegs = Integer.parseInt(numberOfLegs.getText().toString());
         boolean animalHasFur = Boolean.valueOf(hasFur.getText().toString());
         String moreInfo = moreInformation.getText().toString();
 
         Animal a = new Animal(animalName, numLegs, animalHasFur, moreInfo);
-        Intent animalIntent = new Intent(this,MainActivity.class);
+
+        Intent animalIntent = new Intent(this, MainActivity.class);
         animalIntent.putExtra(Keys.ANIMAL,a);
         setResult(RESULT_OK,animalIntent);
         finish();
     }
+
+
 
 }

@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
-
-
 
 public class MainActivity extends AppCompatActivity {
 
-    public boolean first = true;
     private TextView displayText;
+    String text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent animalIntent = getIntent();
         Animal a = (Animal)animalIntent.getSerializableExtra(Keys.ANIMAL);
+
     }
 
     public void addAnother(View view){
@@ -30,15 +31,21 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent,RequestCodes.ADD_ANIMAL);
     }
 
+
     //handling the returned data in MainActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == RequestCodes.ADD_ANIMAL && resultCode == RESULT_OK) {
             Animal animal = (Animal) data.getSerializableExtra(Keys.ANIMAL);
-            displayText.setText(animal.toString());
+
+            text = text + "\n\n"+ animal.toString();
+
+            displayText.setText(text);
+
         }
     }
+
 
 
 
