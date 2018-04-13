@@ -17,7 +17,6 @@
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:hint="Animal Name"
-
         />
 
     <EditText

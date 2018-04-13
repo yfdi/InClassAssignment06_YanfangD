@@ -20,17 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         displayText = (TextView)findViewById(R.id.display_text);
-
-        Intent animalIntent = getIntent();
-        Animal a = (Animal)animalIntent.getSerializableExtra(Keys.ANIMAL);
-
     }
 
     public void addAnother(View view){
         Intent intent = new Intent(this, SecondActivity.class);
         startActivityForResult(intent,RequestCodes.ADD_ANIMAL);
     }
-
 
     //handling the returned data in MainActivity
     @Override
@@ -40,16 +35,27 @@ public class MainActivity extends AppCompatActivity {
             Animal animal = (Animal) data.getSerializableExtra(Keys.ANIMAL);
 
             text = text + "\n\n"+ animal.toString();
-
             displayText.setText(text);
-
         }
     }
+}
 
 
 
 
-    //    public void openAnimal(View view){
+
+
+
+
+
+
+
+
+//        Intent animalIntent = getIntent();
+//        Animal a = (Animal)animalIntent.getSerializableExtra(Keys.ANIMAL);
+
+//    public void openAnimal(View view){
+
 //        Intent intent = new Intent(this, SecondActivity.class);
 //
 //        Animal animal = new Animal("tiger","more info",4,true);
@@ -58,4 +64,3 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(intent);
 //    }
 
-}
