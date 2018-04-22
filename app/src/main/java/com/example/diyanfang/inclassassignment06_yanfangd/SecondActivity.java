@@ -30,7 +30,7 @@ public class SecondActivity extends AppCompatActivity {
     public void addAnimal(View view){
         String animalName = animalType.getText().toString();
         int numLegs = Integer.parseInt(numberOfLegs.getText().toString());
-        boolean animalHasFur = Boolean.valueOf(hasFur.getText().toString());
+        boolean animalHasFur = hasFur.isChecked();
         String moreInfo = moreInformation.getText().toString();
 
         Animal a = new Animal(animalName, numLegs, animalHasFur, moreInfo);
